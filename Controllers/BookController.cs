@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using BackendTest.Context;
 using BackendTest.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,9 @@ namespace BackendTest.Controllers;
 [Route("api/[controller]")]
 public class BookController : ControllerBase
 {
-    private readonly BookContext _context;
+    private readonly BookApiDbContext _context;
     
-    public BookController(BookContext context) =>
+    public BookController(BookApiDbContext context) =>
         _context = context;
 
     [AllowAnonymous]
