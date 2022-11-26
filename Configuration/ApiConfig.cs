@@ -1,3 +1,5 @@
+using BackendTest.Extensions;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,7 +50,7 @@ namespace BackendTest.Configuration
             return services;
         }
 
-        /*public static IApplicationBuilder UseApiConfig(this IApplicationBuilder app, IWebHostEnvironment env)
+        public static IApplicationBuilder UseApiConfig(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -93,6 +95,6 @@ namespace BackendTest.Configuration
             });
 
             return app;
-        }*/
+        }
     }
 }

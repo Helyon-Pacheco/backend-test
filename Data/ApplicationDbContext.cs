@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BackendTest.Models
+namespace BackendTest.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
