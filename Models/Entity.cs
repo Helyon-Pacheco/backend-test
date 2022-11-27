@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BackendTest.Models
 {
     public abstract class Entity
@@ -7,6 +9,7 @@ namespace BackendTest.Models
             Id = Guid.NewGuid();
         }
 
+        [Key]
         public Guid Id { get; set; }
     }
 }
