@@ -1,5 +1,6 @@
 using BackendTest.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace BackendTest.Context
 {
@@ -28,7 +29,7 @@ namespace BackendTest.Context
             base.OnModelCreating(modelBuilder);
         }
 
-        /*public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
             {
@@ -44,6 +45,17 @@ namespace BackendTest.Context
             }
 
             return base.SaveChangesAsync(cancellationToken);
-        }*/
+        }
+    }
+
+    public class BookApiDbContextFactory : IDesignTimeDbContextFactory<BookApiDbContext>
+    {
+        public BookApiDbContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<BookApiDbContext>();
+            optionsBuilder.UseSqlServer("DefaultConnection");
+
+            return new BookApiDbContext(optionsBuilder.Options);
+        }
     }
 }
