@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendTest.Migrations
 {
     [DbContext(typeof(BookApiDbContext))]
-    [Migration("20221128002244_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221128011714_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
