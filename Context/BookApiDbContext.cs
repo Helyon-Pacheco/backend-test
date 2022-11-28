@@ -12,7 +12,7 @@ namespace BackendTest.Context
             ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
-        public DbSet<Book> Book { get; set; }
+        public DbSet<Book> Books { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

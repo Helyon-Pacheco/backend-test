@@ -19,12 +19,12 @@ public class BookController : ControllerBase
     [AllowAnonymous]
     [HttpGet]
     public async Task<List<Book>> Get() =>
-        await _context.Book.ToListAsync();
+        await _context.Books.ToListAsync();
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Book>> Get(long id)
     {
-        var book = await _context.Book.FindAsync(id);
+        var book = await _context.Books.FindAsync(id);
 
         if (book is null)
         {
@@ -39,7 +39,7 @@ public class BookController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create([FromBody] Book book)
     {
-        _context.Book.Add(book);
+        _context.Books.Add(book);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(Get), new { id = book.Id }, book);
@@ -48,14 +48,14 @@ public class BookController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Book book)
     {
-        await _context.Book.FindAsync(id);
+        await _context.Books.FindAsync(id);
 
         if (book is null)
         {
             return NotFound();
         }
 
-        _context.Book.Update(book);
+        _context.Books.Update(book);
         await _context.SaveChangesAsync();
 
         return NoContent();
@@ -64,14 +64,14 @@ public class BookController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var book = await _context.Book.FindAsync(id);
+        var book = await _context.Books.FindAsync(id);
 
         if (book is null)
         {
             return NotFound();
         }
 
-        _context.Book.Remove(book);
+        _context.Books.Remove(book);
         await _context.SaveChangesAsync();
 
         return NoContent();

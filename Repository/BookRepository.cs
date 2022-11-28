@@ -11,7 +11,7 @@ namespace BackendTest.Repository
 
         public async Task<Book> GetBookByName(string name)
         {
-            return await Db.Book.AsNoTracking()
+            return await Db.Books.AsNoTracking()
                 .Include(c => c.Name)
                 .FirstOrDefaultAsync(c => c.Name == name);
         }
