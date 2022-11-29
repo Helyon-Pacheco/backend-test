@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using BackendTest.Context;
 using BackendTest.Configuration;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +19,6 @@ builder.Configuration
 builder.Services.AddDbContext<BookApiDbContext>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-//builder.Services.AddControllers();
 
 builder.Services.AddIdentityConfig(builder.Configuration);
 

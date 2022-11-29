@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using BackendTest.Context;
+using BackendTest.Extensions;
 using BackendTest.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 namespace BackendTest.Controllers;
 
 [Authorize]
-[Route("api/[controller]")]
+[ApiController]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/book")]
 public class BookController : ControllerBase
 {
     private readonly BookApiDbContext _context;
@@ -21,6 +24,7 @@ public class BookController : ControllerBase
     public async Task<List<Book>> Get() =>
         await _context.Books.ToListAsync();
 
+    [AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<ActionResult<Book>> Get(long id)
     {
@@ -34,6 +38,7 @@ public class BookController : ControllerBase
         return book;
     }
 
+    [ClaimsAuthorize("Book", "Create")]
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -45,6 +50,7 @@ public class BookController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = book.Id }, book);
     }
 
+    [ClaimsAuthorize("Book", "Update")]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Book book)
     {
@@ -61,6 +67,7 @@ public class BookController : ControllerBase
         return NoContent();
     }
 
+    [ClaimsAuthorize("Book", "Delete")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {

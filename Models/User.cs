@@ -20,7 +20,7 @@ namespace BackendTest.Models
 
         [Compare("Password", ErrorMessage = "As senhas não conferem.")]
         public string ConfirmPassword { get; set; }
-        
+
         public string Role { get; set; }
     }
 }
