@@ -80,8 +80,6 @@ namespace BackendTest.Configuration
                 Title = "Book API - Backend Test",
                 Version = description.ApiVersion.ToString(),
                 Description = "Esta API foi feita para o Desafio Backend.",
-                Contact = new OpenApiContact() { Name = "Helyon Pacheco", Email = "helyonftp@hotmail.com" },
-                License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
             };
 
             if (description.IsDeprecated)

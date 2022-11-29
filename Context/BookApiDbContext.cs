@@ -15,6 +15,9 @@ namespace BackendTest.Context
         public DbSet<Book> Books { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+                => options.UseSqlServer("Server=localhost,1433;Database=BackendTest;User Id=sa;Password=123456Sa;Trusted_Connection=False;TrustServerCertificate=True;MultipleActiveResultSets=true");
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var property in modelBuilder.Model.GetEntityTypes()

@@ -13,10 +13,11 @@ builder.Configuration
 
 // ConfigureServices
 
-builder.Services.AddDbContext<BookApiDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+builder.Services.AddDbContext<BookApiDbContext>();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//builder.Services.AddControllers();
 
 builder.Services.AddIdentityConfig(builder.Configuration);
 
