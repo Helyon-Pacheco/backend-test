@@ -6,14 +6,14 @@ namespace BackendTest.Context
 {
     public class BookApiDbContext : DbContext
     {
-        public BookApiDbContext(DbContextOptions options) : base(options)
+        public BookApiDbContext(DbContextOptions<BookApiDbContext> options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
         public DbSet<Book> Books { get; set; }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
                 => options.UseSqlServer("Server=localhost,1433;Database=BackendTest;User Id=sa;Password=123456Sa;Trusted_Connection=False;TrustServerCertificate=True;MultipleActiveResultSets=true");

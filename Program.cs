@@ -1,10 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using BackendTest.Context;
 using BackendTest.Configuration;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +22,7 @@ builder.Services.AddApiConfig();
 
 builder.Services.AddSwaggerConfig();
 
-builder.Services.AddLoggingConfig(builder.Configuration);
+//builder.Services.AddLoggingConfig(builder.Configuration);
 
 builder.Services.ResolveDependencies();
 
@@ -39,6 +35,6 @@ app.UseApiConfig(app.Environment);
 
 app.UseSwaggerConfig(apiVersionDescriptionProvider);
 
-app.UseLoggingConfiguration();
+//app.UseLoggingConfiguration();
 
 app.Run();

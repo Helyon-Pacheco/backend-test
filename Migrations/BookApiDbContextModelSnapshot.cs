@@ -17,10 +17,10 @@ namespace BackendTest.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("ProductVersion", "6.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("BackendTest.Models.Book", b =>
                 {
@@ -81,43 +81,6 @@ namespace BackendTest.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books", (string)null);
-                });
-
-            modelBuilder.Entity("BackendTest.Models.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

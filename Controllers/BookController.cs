@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using BackendTest.Context;
 using BackendTest.Extensions;
 using BackendTest.Models;
@@ -40,8 +39,6 @@ public class BookController : ControllerBase
 
     [ClaimsAuthorize("Book", "Create")]
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create([FromBody] Book book)
     {
         _context.Books.Add(book);

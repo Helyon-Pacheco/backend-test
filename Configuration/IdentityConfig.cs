@@ -3,7 +3,6 @@ using BackendTest.Extensions;
 using BackendTest.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BackendTest.Configuration
@@ -13,8 +12,7 @@ namespace BackendTest.Configuration
         public static IServiceCollection AddIdentityConfig(this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>();
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
