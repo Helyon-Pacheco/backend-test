@@ -77,7 +77,7 @@ namespace BackendTest.Configuration
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                /*endpoints.MapHealthChecks("/api/hc", new HealthCheckOptions()
+                endpoints.MapHealthChecks("/api/hc", new HealthCheckOptions()
                 {
                     Predicate = _ => true,
                     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
@@ -90,7 +90,7 @@ namespace BackendTest.Configuration
                     options.UseRelativeApiPath = false;
                     options.UseRelativeResourcesPath = false;
                     options.UseRelativeWebhookPath = false;
-                });*/
+                });
 
             });
 

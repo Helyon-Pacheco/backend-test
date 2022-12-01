@@ -6,10 +6,10 @@ namespace BackendTest.Models
     {
         protected Entity()
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString();
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

@@ -25,7 +25,7 @@ public class BookController : ControllerBase
 
     [AllowAnonymous]
     [HttpGet("{id}")]
-    public async Task<ActionResult<Book>> Get(long id)
+    public async Task<ActionResult<Book>> Get(string id)
     {
         var book = await _context.Books.FindAsync(id);
 
@@ -37,7 +37,6 @@ public class BookController : ControllerBase
         return book;
     }
 
-    [ClaimsAuthorize("Book", "Create")]
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] Book book)
     {
@@ -47,9 +46,8 @@ public class BookController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = book.Id }, book);
     }
 
-    [ClaimsAuthorize("Book", "Update")]
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, [FromBody] Book book)
+    public async Task<IActionResult> Update(string id, [FromBody] Book book)
     {
         await _context.Books.FindAsync(id);
 
@@ -64,9 +62,8 @@ public class BookController : ControllerBase
         return NoContent();
     }
 
-    [ClaimsAuthorize("Book", "Delete")]
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(string id)
     {
         var book = await _context.Books.FindAsync(id);
 

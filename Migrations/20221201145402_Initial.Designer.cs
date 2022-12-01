@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendTest.Migrations
 {
     [DbContext(typeof(BookApiDbContext))]
-    [Migration("20221130151141_Initial")]
+    [Migration("20221201145402_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,9 +26,8 @@ namespace BackendTest.Migrations
 
             modelBuilder.Entity("BackendTest.Models.Book", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(100)");
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");

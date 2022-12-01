@@ -46,7 +46,7 @@ namespace BackendTest.Repository
 
         public virtual async Task Remove(Guid id)
         {
-            DbSet.Remove(new TEntity { Id = id });
+            DbSet.Remove(new TEntity { Id = id.ToString() });
             await SaveChanges();
         }
 

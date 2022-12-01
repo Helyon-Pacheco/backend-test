@@ -29,11 +29,11 @@ namespace BackendTest.Configuration
             return services;
         }
 
-        /*public static IApplicationBuilder UseLoggingConfiguration(this IApplicationBuilder app)
+        public static IApplicationBuilder UseLoggingConfiguration(this IApplicationBuilder app)
         {
             app.UseElmahIo();
 
             return app;
-        }*/
+        }
     }
 }

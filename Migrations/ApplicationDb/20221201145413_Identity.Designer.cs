@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendTest.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221130152744_Identity")]
+    [Migration("20221201145413_Identity")]
     partial class Identity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

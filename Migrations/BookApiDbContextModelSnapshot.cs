@@ -24,9 +24,8 @@ namespace BackendTest.Migrations
 
             modelBuilder.Entity("BackendTest.Models.Book", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(100)");
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
