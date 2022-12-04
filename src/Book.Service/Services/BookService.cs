@@ -1,6 +1,6 @@
 using Book.Domain.Interfaces;
 using Book.Domain.Models;
-using Book.Domain.Models.Validation;
+using Book.Domain.Models.Validations;
 
 namespace Book.Service.Services
 {

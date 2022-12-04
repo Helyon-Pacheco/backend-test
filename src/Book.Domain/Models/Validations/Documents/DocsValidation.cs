@@ -1,4 +1,4 @@
-namespace BackendTest.Models.Validations.Documents
+namespace Book.Domain.Models.Validations.Documents
 {
     public class CpfValidacao
     {

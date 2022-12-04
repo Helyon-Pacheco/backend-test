@@ -1,8 +1,8 @@
 using FluentValidation;
 
-namespace BackendTest.Models.Validations
+namespace Book.Domain.Models.Validations
 {
-    public class BookValidation : AbstractValidator<Book>
+    public class BookValidation : AbstractValidator<BookModel>
     {
         public BookValidation()
         {
